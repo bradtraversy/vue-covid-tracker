@@ -1,19 +1,25 @@
-# vue-covid-tracker
+# Vue Covid-19 Tracker
 
-## Project setup
+Displays the new/total cases and deaths globaly as well as per country
+
+## API
+
+This project uses the [covid19api.com](https://covid19api.com/) by [Kyle Redelinghuys](https://twitter.com/ksredelinghuys)
+
+### Setup
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Run
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Build
+
 ```
 npm run build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
