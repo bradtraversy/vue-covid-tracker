@@ -7,7 +7,7 @@
     <p>
       API by
       <a class="text-blue-300" href="https://covid19api.com" target="_blank"
-        >covid19api.com</a
+      >covid19api.com</a
       >
     </p>
   </header>
@@ -15,6 +15,6 @@
 
 <script>
 export default {
-  name: 'Header',
-}
+  name: 'Header'
+};
 </script>

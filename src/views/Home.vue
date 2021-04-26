@@ -1,25 +1,25 @@
 <template>
   <main v-if="!loading">
-    <DataTitle :text="title" :dataDate="dataDate" />
+    <DataTitle :dataDate="dataDate" :text="title" />
 
     <DataBoxes :stats="status" />
 
-    <CountrySelect @get-country="getCountryData" :countries="countries" />
+    <CountrySelect :countries="countries" @get-country="getCountryData" />
 
     <button
-      @click="clearCountryData"
       v-if="status.Country"
       class="bg-green-700 text-white rounded p-3 mt-10 focus:outline-none hover:bg-green-600"
+      @click="clearCountryData"
     >
       Clear Country
     </button>
   </main>
 
-  <main class="flex flex-col align-center justify-center text-center" v-else>
+  <main v-else class="flex flex-col align-center justify-center text-center">
     <div class="text-gray-500 text-3xl mt-10 mb-6">
       Fetching Data
     </div>
-    <img :src="require('../assets/hourglass.gif')" class="w-24 m-auto" alt="" />
+    <img :src="require('../assets/hourglass.gif')" alt="" class="w-24 m-auto" />
   </main>
 </template>
 
