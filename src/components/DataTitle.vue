@@ -8,15 +8,17 @@
 </template>
 
 <script>
-import moment from 'moment'
+import moment from 'moment';
+import { computed } from 'vue';
 
 export default {
   name: 'DataTitle',
   props: ['text', 'dataDate'],
-  computed: {
-    timestamp: function() {
-      return moment(this.dataDate).format('MMMM Do YYYY, h:mm:ss a')
-    },
-  },
-}
+  setup ({ dataDate }) {
+    return {
+      timestamp: computed(() => moment(dataDate)
+        .format('MMMM Do YYYY, h:mm:ss a'))
+    };
+  }
+};
 </script>

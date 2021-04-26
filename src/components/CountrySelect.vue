@@ -12,20 +12,21 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
   name: 'CountrySelect',
   props: ['countries'],
-  data() {
-    return {
-      selected: 0,
-    }
-  },
-  methods: {
-    onChange() {
-      const country = this.countries.find((item) => item.ID === this.selected)
+  setup ({ countries }, { emit }) {
+    const selected = ref(0);
 
-      this.$emit('get-country', country)
-    },
-  },
-}
+    return {
+      selected,
+      onChange () {
+        const country = countries.find((item) => item.ID === selected.value);
+        emit('get-country', country);
+      }
+    };
+  }
+};
 </script>
