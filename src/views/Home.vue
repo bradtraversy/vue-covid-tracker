@@ -2,12 +2,12 @@
   <main v-if="!loading">
     <DataTitle :dataDate="dataDate" :text="title" />
 
-    <DataBoxes :stats="status" />
+    <DataBoxes :stats="stats" />
 
     <CountrySelect :countries="countries" @get-country="getCountryData" />
 
     <button
-      v-if="status.Country"
+      v-if="stats.Country"
       class="bg-green-700 text-white rounded p-3 mt-10 focus:outline-none hover:bg-green-600"
       @click="clearCountryData"
     >
@@ -40,7 +40,7 @@ export default {
     const loading = ref(true);
     const title = ref('Global');
     const dataDate = ref('');
-    const status = ref({});
+    const stats = ref({});
     const countries = ref([]);
 
     const fetchCovidData = async () => {
@@ -49,7 +49,7 @@ export default {
     };
 
     const getCountryData = (country) => {
-      status.value = country;
+      stats.value = country;
       title.value = country.Country;
     };
 
@@ -57,7 +57,7 @@ export default {
       loading.value = true;
       const data = await fetchCovidData();
       title.value = 'Global';
-      status.value = data.Global;
+      stats.value = data.Global;
       loading.value = false;
     };
 
@@ -65,7 +65,7 @@ export default {
       const data = await fetchCovidData();
 
       dataDate.value = data.Date;
-      status.value = data.Global;
+      stats.value = data.Global;
       countries.value = data.Countries;
       loading.value = false;
     };
@@ -76,7 +76,7 @@ export default {
       loading,
       title,
       dataDate,
-      status,
+      stats,
       countries,
       getCountryData,
       clearCountryData
