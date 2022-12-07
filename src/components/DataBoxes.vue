@@ -30,17 +30,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'DataBoxes',
-  props: ['stats'],
-  setup () {
-    return {
-      numberWithCommas (x) {
-        return x.toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-      }
-    };
-  }
-};
+<script setup>
+const props = defineProps(['stats'])
+
+const numberWithCommas = (x) => {
+  return x.toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 </script>
